@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title> Shanviraz's Calculator </title>
+  <link rel="icon" href="calculatorfinal.png" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui;
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 50px 30px;
+  color: #fff;
+  background-color: #030303;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #fc72ff,
+    #8f68ff,
+    #487bff,
+    #8f68ff,
+    #fc72ff 
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+}
+
+
+
+
+
+@keyframes animate-gradient {
+  to {
+    background-position: 200%;
+  }
+}
+
+    * {
+
+      margin: 2px;
+
+      padding: 4px;
+      box-sizing: border-box;
+
+      
+
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    }
+
+
+
+    body {
+
+      background: linear-gradient(145deg, #6f4545, #953838);
+
+      height: 100vh;
+
+      display: flex;
+
+      align-items: right;
+
+      justify-content: right;
+
+      padding: 20px;
+  
+
+    }
+
+
+
+   .calculator {
+
+      background: rgba(255, 255, 255, 0.05);
+
+      box-shadow: 0 8px 32px rgba(2, 4, 6, 8.6);
+
+      backdrop-filter: transparency(10px);
+
+      border-radius: 1cm 10px;
+      height: max-content;
+
+      padding:  20px;
+
+      width: 100%;
+
+      max-width: 360px;
+
+      border: aqua 5px transparent(2px, 4px, 6px, 8.6); 
+      transition: ease-in-out 0.3s;
+      transform-style: preserve-3d;
+       
+    }
+
+
+
+    .display {
+
+      background: rgba(255, 255, 255, 0.05);
+
+      border-radius: 12px;
+
+      padding: 16px;
+
+      font-size: 45px;
+
+      color: #a09e9e;
+
+      text-align: right;
+
+      margin-bottom: 25px;
+
+      min-height: 60px;
+
+      overflow: auto;
+
+      word-wrap: break-word 200%;
+
+    }
+
+
+
+    .buttons {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 12px;
+
+    }
+
+
+
+    button {
+
+      padding: 18px;
+
+      border: none;
+
+      border-radius: 70px;
+
+      font-size: 18px;
+
+      background: rgba(255, 255, 255, 0.07);
+
+      color: #ac9f9f;
+
+      cursor:pointer;
+
+      transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+    }
+
+
+
+    button:hover {
+
+      background: rgba(99, 16, 16, 0.15);
+
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1.03);
+
+    }
+
+
+
+    .operator {
+
+      color:white;
+      font-family: monospace;
+
+      font-size: larger;
+
+      
+    }
+
+
+
+    .equal {
+
+      background: #66969c;
+
+      color: #000;
+
+      font-weight: bold;
+
+    }
+
+
+
+    .equal:hover {
+
+      background: #648b91;
+
+    }
+
+
+
+    .clear {
+
+      color: #ff5252;
+
+    }
+
+
+
+    .clear:hover {
+
+      background: rgba(255, 82, 82, 0.2);
+
+    }
+
+
+    /*For Desktop*/
+     @media (max-width: 1024px) {
+
+      .display {
+
+        font-size: 42px;
+
+        padding: 28px; }
+
+         /*For Mobile*/
+         @media (max-width: 600px) {
+
+          .display {
+
+            font-size: 34px;
+
+            padding: 20px;
+
+          }
+        
+
+      }
+
+
+
+      button {
+
+        padding: 16px;
+
+        font-size: 16px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <h1>Shanviraz Dhrubo’s calculator is smart and efficient, making complex calculations simple with a clean and user-friendly design.</h1>
+
+<video loop autoplay muted height="200px" width="300px">
+  <source src="front-end.mp4" type="video/mp4">
+</video> 
+<img src="Johnny depp.jpeg" alt="meme" height="360" width="250">
+
+<div class="calculator">
+
+    <div class="display" id="display">0</div>
+
+    <div class="buttons">
+
+      <button class="clear" onclick="clearDisplay()">C</button>
+
+      <button onclick="appendValue('(')">(</button>
+
+      <button onclick="appendValue(')')">)</button>
+
+      <button class="operator" onclick="appendValue('/')">÷</button>
+
+
+
+      <button onclick="appendValue('7')">7</button>
+
+      <button onclick="appendValue('8')">8</button>
+
+      <button onclick="appendValue('9')">9</button>
+
+      <button class="operator" onclick="appendValue('*')">×</button>
+
+
+
+      <button onclick="appendValue('4')">4</button>
+
+      <button onclick="appendValue('5')">5</button>
+
+      <button onclick="appendValue('6')">6</button>
+
+      <button class="operator" onclick="appendValue('-')">−</button>
+
+
+
+      <button onclick="appendValue('1')">1</button>
+
+      <button onclick="appendValue('2')">2</button>
+
+      <button onclick="appendValue('3')">3</button>
+
+      <button class="operator" onclick="appendValue('+')">+</button>
+
+    <button onclick="appendValue('.')">.</button>
+
+      <button onclick="appendValue('0')">0</button>
+
+      <button class="percentage" onclick="appendValue('%')">%</button>
+
+      <button class="equal" onclick="calculate()">=</button>
+     
+    </div>
+
+  </div>
+
+
+  <script>
+    document.addEventListener('contextmenu', function(event){
+
+      event.preventDefault();
+
+      alert('Right-click is disabled on this calculator.');
+
+    });
+
+    const display = document.getElementById('display');
+
+
+
+    function appendValue(value) {
+
+      if (display.innerText === '0' || display.innerText === 'Error') {
+
+        display.innerText = value;
+
+      } else {
+
+        display.innerText += value;
+
+      }
+
+    }
+
+
+
+    function clearDisplay() {
+
+      display.innerText = '0';
+
+    }
+
+
+
+    function calculate() {
+
+      try {
+
+        const result = eval(display.innerText.replace(/÷/g, '/').replace(/×/g, '*'));
+
+        display.innerText = result;
+
+      } catch (e) {
+
+        display.innerText = 'Error';
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html
